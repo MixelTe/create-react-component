@@ -2,7 +2,7 @@
   "name": "create-react-component-mixel",
   "displayName": "Create React Component",
   "description": "Adds button to create new react component",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "publisher": "MixelTe",
   "icon": "images/icon.png",
   "repository": {
@@ -35,7 +35,7 @@
       ]
     },
     "configuration": {
-      "title": "Create Component here",
+      "title": "Create React Component here",
       "properties": {
         "create-react-component.jsxFileName": {
           "type": "string",
@@ -49,7 +49,7 @@
         },
         "create-react-component.jsxComponentContent": {
           "type": "string",
-          "default": "import React from 'react'\nimport styles from './%name%.module.css'\n\nexport const %name% = () => {\n\treturn <div className={styles.root}>%name%</div>\n}\n",
+          "default": "import React from \"react\"\nimport styles from \"./%name%.module.css\"\n\nexport const %name% = () => {\n\treturn <div className={styles.root}>%name%</div>\n}\n",
           "description": "Content of generated jsx file. %name% will be replaced with component name",
           "editPresentation": "multilineText"
         },

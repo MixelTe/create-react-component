@@ -20,6 +20,8 @@ export function activate(context: vscode.ExtensionContext)
 		{
 			try {
 				name = name || "NewComponent";
+				name = name.replace(/ /g, "_");
+
 				const wsedit = new vscode.WorkspaceEdit();
 				const config = vscode.workspace.getConfiguration('create-react-component');
 
