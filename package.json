@@ -4,22 +4,57 @@
   "description": "Adds button to create new react component",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.74.0"
+    "vscode": "^1.73.0"
   },
   "categories": [
     "Other"
   ],
   "activationEvents": [
-    "onCommand:create-react-component.helloWorld"
+    "onCommand:create-react-component.createComponent"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "create-react-component.helloWorld",
-        "title": "Hello World"
+        "command": "create-react-component.createComponent",
+        "title": "Create Component here"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "create-react-component.createComponent",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Create Component here",
+      "properties": {
+        "create-react-component.jsxFileName": {
+          "type": "string",
+          "default": "%name%.jsx",
+          "description": "Name of generated jsx file."
+        },
+        "create-react-component.cssFileName": {
+          "type": "string",
+          "default": "%name%.module.css",
+          "description": "Name of generated css file."
+        },
+        "create-react-component.jsxComponentContent": {
+          "type": "string",
+          "default": "import React from 'react'\nimport styles from './%name%.module.css'\n\nexport const %name% = () => {\n\treturn <div className={styles.root}>%name%</div>\n}\n",
+          "description": "Content of generated jsx file. %name% will be replaced with component name",
+          "editPresentation": "multilineText"
+        },
+        "create-react-component.cssComponentContent": {
+          "type": "string",
+          "default": ".root {\n\t\n}\n",
+          "description": "Content of generated css file.",
+          "editPresentation": "multilineText"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
@@ -33,7 +68,7 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.74.0",
+    "@types/vscode": "^1.73.0",
     "@types/glob": "^8.0.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
