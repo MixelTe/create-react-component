@@ -1,4 +1,4 @@
-# create-react-component README
+# Create React Component
 
 Extension helps creating React components
 

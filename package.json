@@ -1,8 +1,14 @@
 {
-  "name": "create-react-component",
+  "name": "create-react-component-mixel",
   "displayName": "Create React Component",
   "description": "Adds button to create new react component",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "publisher": "MixelTe",
+  "icon": "images/icon.png",
+  "repository": {
+    "url": "https://github.com/MixelTe/create-react-component",
+    "type": "git"
+  },
   "engines": {
     "vscode": "^1.73.0"
   },
