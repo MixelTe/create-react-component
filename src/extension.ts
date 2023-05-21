@@ -18,12 +18,16 @@ export function activate(context: vscode.ExtensionContext)
 			placeHolder: "NewComponent",
 		}).then(name =>
 		{
-			try {
+			try
+			{
+				if (!name) return;
 				name = name || "NewComponent";
 				name = name.replace(/ /g, "_");
 
 				const wsedit = new vscode.WorkspaceEdit();
 				const config = vscode.workspace.getConfiguration('create-react-component');
+
+				const createCss = config.get("cssCreateFile", true);
 
 				const jsxName = config.get("jsxFileName", "index.jsx").replace(/\%name\%/g, name);
 				const cssName = config.get("cssFileName", "styles.module.css").replace(/\%name\%/g, name);
@@ -35,7 +39,8 @@ export function activate(context: vscode.ExtensionContext)
 
 				var enc = new TextEncoder();
 				wsedit.createFile(filePathjs, { ignoreIfExists: true, contents: enc.encode(jsx) });
-				wsedit.createFile(filePathcss, { ignoreIfExists: true, contents: enc.encode(css) });
+				if (createCss)
+					wsedit.createFile(filePathcss, { ignoreIfExists: true, contents: enc.encode(css) });
 
 				vscode.workspace.applyEdit(wsedit);
 

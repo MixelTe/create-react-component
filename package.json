@@ -2,7 +2,7 @@
   "name": "create-react-component-mixel",
   "displayName": "Create React Component",
   "description": "Adds button to create new react component",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "publisher": "MixelTe",
   "icon": "images/icon.png",
   "repository": {
@@ -58,6 +58,11 @@
           "default": ".root {\n\t\n}\n",
           "description": "Content of generated css file.",
           "editPresentation": "multilineText"
+        },
+        "create-react-component.cssCreateFile": {
+          "type": "boolean",
+          "default": true,
+          "description": "Should a css file be created."
         }
       }
     }
